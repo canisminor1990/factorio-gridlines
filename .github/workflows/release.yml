@@ -20,7 +20,7 @@ jobs:
         run: bun i
 
       - name: Test
-        run: bun run lint
+        run: bun run ci
 
       - name: Release
         run: bun run release
