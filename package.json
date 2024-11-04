@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tstl && node scripts/build.js",
     "ci": "npm run lint && npm run type-check",
-    "dev": "concurrently \"tstl --watch\" \"node scripts/dev.js\"",
+    "dev": "npm run build && concurrently -n tstl,dev -c blue,yellow \"tstl --watch\" \"node scripts/dev.js\"",
     "export": "scripts/dev_export.sh",
     "i18n": "lobe-i18n",
     "lint": "eslint \"./**/*.{js,jsx,ts,tsx}\" --fix",

@@ -2,7 +2,7 @@ const { writeFileSync, mkdirSync, existsSync } = require('node:fs');
 const config = require('../.i18nrc');
 const { readJsonSync } = require('fs-extra');
 const path = require('node:path');
-const { publicDir, localeDir } = require('./const');
+const { distDir, localeDir } = require('./const');
 const { consola } = require('consola');
 
 const genLocaleCfg = () => {
@@ -16,9 +16,9 @@ const genLocaleCfg = () => {
       }
       cfg.push('');
     }
-    if (!existsSync(path.resolve(publicDir, 'locale', locale)))
-      mkdirSync(path.resolve(publicDir, 'locale', locale), { recursive: true });
-    writeFileSync(path.resolve(publicDir, `locale/${locale}/index.cfg`), cfg.join('\n'), 'utf8');
+    if (!existsSync(path.resolve(distDir, 'locale', locale)))
+      mkdirSync(path.resolve(distDir, 'locale', locale), { recursive: true });
+    writeFileSync(path.resolve(distDir, `locale/${locale}/index.cfg`), cfg.join('\n'), 'utf8');
 
     consola.start(`Generated ${locale}/index.cfg`);
   }

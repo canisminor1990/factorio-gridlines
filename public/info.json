@@ -8,12 +8,16 @@
   "name": "gridlines",
   "package": {
     "readme": "README.md",
-    "gallery": ["mod-portal/gallery/screenshot.png"],
+    "gallery": [
+      "gallery/screenshot.png",
+      "gallery/map-settings.png",
+      "gallery/player-settings.png"
+    ],
     "git_publish_branch": "releases",
     "ignore": ["gallery/**/*", "**/*.ts", "**/*.tsx"],
     "removeZipAfterPackage": true,
     "sync_portal_details": true
   },
   "title": "Gridlines",
-  "version": "2.0.0"
+  "version": "1.0.0"
 }
