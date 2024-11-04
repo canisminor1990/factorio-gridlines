@@ -5,11 +5,14 @@ const path = require('node:path');
 const { genLocaleCfg } = require('./i18n');
 const { consola } = require('consola');
 
+const packageJson = require('../package.json');
+const infoJson = require('../public/info.json');
+
+const version = process.argv[2] || packageJson.version;
+
 const build = () => {
-  const info = fs.readJsonSync(path.resolve(publicDir, 'info.json'));
-  const pkg = fs.readJsonSync(path.resolve(rootDir, 'package.json'));
-  info.version = pkg.version;
-  fs.writeJsonSync(path.resolve(publicDir, 'info.json'), info, { spaces: 2 });
+  infoJson.version = version;
+  fs.writeJsonSync(path.resolve(publicDir, 'info.json'), infoJson, { spaces: 2 });
 
   copyDirectory(publicDir, distDir);
 

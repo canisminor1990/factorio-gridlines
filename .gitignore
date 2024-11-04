@@ -45,4 +45,6 @@ test-output
 bun.lockb
 
 *.patch
+*.zip
+dist_files.txt
 sconfig.tsbuildinfo

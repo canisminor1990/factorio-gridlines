@@ -1,0 +1,33 @@
+name: Release CI
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install bun
+        uses: oven-sh/setup-bun@v2
+        with:
+            bun-version: 1.0.31
+
+      - name: Install deps
+        run: bun i
+
+      - name: Test
+        run: bun run ci
+
+      - name: Release
+        run: bun run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Upload Mod
+        run: bun run upload
+        env:
+          FACTORIO_TOKEN: ${{ secrets.FACTORIO_TOKEN }}
