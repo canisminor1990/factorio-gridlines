@@ -23,9 +23,25 @@ Enhance your building layouts with a powerful and flexible grid system! Grid Pla
 
 </div>
 
+> \[!NOTE]
 > Trying to develop a Factorio mod using TypeScript, with the grid system inspired by the implementation of [ChunkyChunks - Configurable Gridlines](https://mods.factorio.com/mod/ChunkyChunks).
-> This project relies on two powerful open-source projects: [TypeScriptToLua](https://github.com/TypeScriptToLua/TypeScriptToLua) and [Typed Factorio](https://github.com/GlassBricks/typed-factorio).
-> This mod is entirely written in **TypeScript**, featuring complete type definitions and debugging capabilities. Additionally, the i18n generation scheme has been optimized to comply with the i18next standard.
+
+This project relies on two powerful open-source projects: [TypeScriptToLua](https://github.com/TypeScriptToLua/TypeScriptToLua) and [Typed Factorio](https://github.com/GlassBricks/typed-factorio).
+This mod is entirely written in **TypeScript**, featuring complete type definitions and debugging capabilities. Additionally, the i18n generation scheme has been optimized to comply with the i18next standard.
+
+<details>
+<summary><kbd>Table of contents</kbd></summary>
+
+#### TOC
+
+- [✨ Features](#-features)
+- [⌨️ Local Development](#️-local-development)
+- [🤝 Contributing](#-contributing)
+- [🔗 Credits](#-credits)
+
+####
+
+</details>
 
 ## ✨ Features
 
