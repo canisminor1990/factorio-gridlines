@@ -3,13 +3,14 @@ const { options } = require('@lobehub/lint/dist/semantic-release/index');
 
 const config = createConfig({
   options,
-  githubAssets: [{ path: '*.zip', label: 'Distribution' }],
+  githubAssets: ['*.zip'],
 });
 
 config.plugins.push([
   '@semantic-release/exec',
   {
-    prepareCmd: 'npm run build ${nextRelease.version} && npm run archive ${nextRelease.version}',
+    prepareCmd:
+      'npm run build ${nextRelease.version} && npm run archive ${nextRelease.version} && npm run upload',
   },
 ]);
 

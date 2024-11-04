@@ -26,8 +26,4 @@ jobs:
         run: bun run release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
-      - name: Upload Mod
-        run: bun run upload
-        env:
           FACTORIO_TOKEN: ${{ secrets.FACTORIO_TOKEN }}

@@ -46,4 +46,4 @@ const upload = async () => {
   }
 };
 
-await upload();
+upload();
