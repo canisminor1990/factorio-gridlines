@@ -1,0 +1,31 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TypeScriptToLua/TypeScriptToLua/master/tsconfig-schema.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "types": ["typed-factorio/runtime"],
+    "lib": ["esnext"],
+    "skipDefaultLibCheck": true,
+    "strict": true,
+    "experimentalDecorators": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "jsx": "react",
+    "jsxFactory": "FactorioJsx.createElement",
+    "jsxFragmentFactory": "FactorioJsx.Fragment",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitThis": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noEmitOnError": true
+  },
+  "exclude": ["**/node_modules/"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
+  "tstl": {
+    "luaTarget": "5.2",
+    "noImplicitSelf": true,
+    "sourceMapTraceback": true
+  }
+}

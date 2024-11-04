@@ -1,0 +1,59 @@
+{
+  "name": "factorio-gridlines",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Enhance your building layouts with a powerful and flexible grid system! Grid Planner Deluxe adds customizable grids to your Factorio world, allowing for precise and efficient designs across multiple layers.",
+  "keywords": [
+    "factorio",
+    "mod",
+    "gridlines"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tstl && node scripts/build.js",
+    "ci": "npm run lint && npm run type-check",
+    "dev": "concurrently \"tstl --watch\" \"node scripts/dev.js\"",
+    "export": "scripts/dev_export.sh",
+    "i18n": "lobe-i18n",
+    "lint": "eslint \"./**/*.{js,jsx,ts,tsx}\" --fix",
+    "lint:md": "remark . --quiet --frail --output",
+    "prepare": "husky install",
+    "type-check": "tsc -p tsconfig.json"
+  },
+  "lint-staged": {
+    "*.md": [
+      "remark --quiet --output --",
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.json": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{ts,tsx}": [
+      "prettier --parser=typescript --write",
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.6.1",
+    "@lobehub/i18n-cli": "^1.20.0",
+    "@lobehub/lint": "^1.24.4",
+    "chokidar": "^4.0.1",
+    "commitlint": "^18.6.1",
+    "concurrently": "^9.0.1",
+    "consola": "^3.2.3",
+    "eslint": "^8.57.0",
+    "fs-extra": "^11.2.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.9",
+    "prettier": "^3.3.3",
+    "remark": "^14.0.3",
+    "remark-cli": "^11.0.0",
+    "typed-factorio": "^3.0.1",
+    "typescript": "^5.6.3",
+    "typescript-to-lua": "^1.27.0"
+  }
+}
