@@ -45,3 +45,4 @@ test-output
 bun.lockb
 
 *.patch
+sconfig.tsbuildinfo
