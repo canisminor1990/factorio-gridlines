@@ -1,5 +1,36 @@
 # Changelog
 
+### [Version&nbsp;1.0.2](https://github.com/canisminor1990/factorio-gridlines/compare/v1.0.1...v1.0.2)
+<sup>Released on **2024-11-04**</sup>
+
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix typo.
+
+
+<br/>
+
+
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+
+
+#### What's fixed
+
+* **misc**: Fix typo ([b7c5c30](https://github.com/canisminor1990/factorio-gridlines/commit/b7c5c30))
+
+</details>
+
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## Version&nbsp;1.0.0
 <sup>Released on **2024-11-04**</sup>
 
