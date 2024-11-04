@@ -4,7 +4,7 @@
 
 <h1>Factorio Gridlines</h1>
 
-Enhance your building layouts with a powerful and flexible grid system! Grid Planner Deluxe adds customizable grids to your Factorio world, allowing for precise and efficient designs across multiple layers.
+Enhance your building layouts with a powerful and flexible grid system! Grid Planner Deluxe adds customizable grids to your world, allowing for precise and efficient designs across multiple layers.
 
 [![][factorio-mod-shield]][factorio-mod-link]
 [![][github-release-shield]][github-release-link]
