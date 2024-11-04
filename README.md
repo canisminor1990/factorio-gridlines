@@ -10,25 +10,22 @@ Enhance your building layouts with a powerful and flexible grid system! Grid Pla
 [![][github-release-shield]][github-release-link]
 [![][github-releasedate-shield]][github-releasedate-link]
 [![][github-action-release-shield]][github-action-release-link]
-[![][typescripttolua-shield]][typescripttolua-link]
-
-<br/>
-
+[![][typescripttolua-shield]][typescripttolua-link]<br/>
 [![][github-contributors-shield]][github-contributors-link]
 [![][github-forks-shield]][github-forks-link]
 [![][github-stars-shield]][github-stars-link]
 [![][github-issues-shield]][github-issues-link]
 [![][github-license-shield]][github-license-link]
 
-[Changelog](./CHANGELOG.md) · [Report Bug][github-issues-link] · [Request Feature][github-issues-link]
+[Mod Portal][factorio-mod-link] · [Changelog](./CHANGELOG.md) · [Report Bug][github-issues-link] · [Request Feature][github-issues-link]
 
 ![](https://github.com/user-attachments/assets/2e24c083-b538-4ef8-b5c8-50d267671347)
+
+</div>
 
 > Trying to develop a Factorio mod using TypeScript, with the grid system inspired by the implementation of [ChunkyChunks - Configurable Gridlines](https://mods.factorio.com/mod/ChunkyChunks).
 > This project relies on two powerful open-source projects: [TypeScriptToLua](https://github.com/TypeScriptToLua/TypeScriptToLua) and [Typed Factorio](https://github.com/GlassBricks/typed-factorio).
 > This mod is entirely written in **TypeScript**, featuring complete type definitions and debugging capabilities. Additionally, the i18n generation scheme has been optimized to comply with the i18next standard.
-
-</div>
 
 ## ✨ Features
 
@@ -38,6 +35,8 @@ Enhance your building layouts with a powerful and flexible grid system! Grid Pla
 - [x] **🖍️ Map and Personal Settings**: Setting the grid on the map enables all online players to share the same grid system, while also allowing individual settings to override it.
 - [x] **🌐 Internationalization**: Comprehensive i18n translation supporting 17 languages.
 - [x] **⌨️ Hotkeys**: Supports button and `F6` hotkey toggling.
+
+<br/>
 
 | Map Settings                                                                         | Player Settings                                                                      |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |

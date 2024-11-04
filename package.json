@@ -8,6 +8,15 @@
     "mod",
     "gridlines"
   ],
+  "homepage": "https://mods.factorio.com/mod/gridlines",
+  "bugs": {
+    "url": "https://github.com/canisminor1990/factorio-gridlines/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/canisminor1990/factorio-gridlines.git"
+  },
+  "author": "CanisMinor <i@canisminor.cc>",
   "sideEffects": false,
   "scripts": {
     "build": "tstl && node scripts/build.js",
