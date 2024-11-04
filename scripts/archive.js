@@ -4,7 +4,7 @@ const archiver = require('archiver');
 const { consola } = require('consola');
 const packageJson = require('../package.json');
 const { rootDir } = require('./const.js');
-const infoJson = require('../dist/info.json');
+const infoJson = require('../public/info.json');
 
 const version = process.argv[2] || packageJson.version;
 
@@ -18,7 +18,7 @@ const archive = archiver('zip', {
 
 output.on('close', function () {
   consola.info(archive.pointer() + ' total bytes');
-  consola.success('archiver has been finalized and the output file descriptor has closed.');
+  consola.success(zipName, 'has been finalized and the output file descriptor has closed.');
 });
 
 archive.on('error', function (err) {
