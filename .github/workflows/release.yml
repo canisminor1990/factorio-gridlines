@@ -11,28 +11,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
+      - name: Install bun
+        uses: oven-sh/setup-bun@v2
         with:
-          version: 7
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
+            bun-version: 1.0.31
 
       - name: Install deps
-        run: pnpm install
+        run: bun i
 
       - name: Test
-        run: pnpm run ci
+        run: bun run lint
 
       - name: Release
-        run: pnpm run release
+        run: bun run release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Upload Mod
-        run: pnpm run upload
+        run: bun run upload
         env:
           FACTORIO_TOKEN: ${{ secrets.FACTORIO_TOKEN }}
