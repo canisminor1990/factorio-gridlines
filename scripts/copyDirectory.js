@@ -13,10 +13,8 @@ function copyDirectory(source, destination) {
     const destPath = path.resolve(destination, file);
 
     if (fs.lstatSync(sourcePath).isDirectory()) {
-      // 递归复制子目录
       copyDirectory(sourcePath, destPath);
     } else {
-      // 复制文件
       fs.copyFileSync(sourcePath, destPath);
     }
   }

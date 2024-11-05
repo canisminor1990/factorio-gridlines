@@ -4,6 +4,7 @@ const fs = require('fs-extra');
 const path = require('node:path');
 const { genLocaleCfg } = require('./i18n');
 const { consola } = require('consola');
+const { buildChangelog } = require('./changelog');
 
 const packageJson = require('../package.json');
 const infoJson = require('../public/info.json');
@@ -29,6 +30,10 @@ const build = () => {
   fs.copyFileSync(path.resolve(rootDir, 'README.md'), path.resolve(distDir, 'README.md'));
 
   consola.success(`Copy README.md`);
+
+  buildChangelog();
+
+  consola.success('Build changelog.txt from CHANGELOG.md');
 };
 
 build();
