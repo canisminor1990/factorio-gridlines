@@ -1,5 +1,36 @@
 # Changelog
 
+### [Version&nbsp;1.0.5](https://github.com/canisminor1990/factorio-gridlines/compare/v1.0.4...v1.0.5)
+<sup>Released on **2024-11-05**</sup>
+
+
+#### 💄 Styles
+
+- **misc**: Format changelog.txt.
+
+
+<br/>
+
+
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+
+
+#### Styles
+
+* **misc**: Format changelog.txt ([e1f51e0](https://github.com/canisminor1990/factorio-gridlines/commit/e1f51e0))
+
+</details>
+
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;1.0.4](https://github.com/canisminor1990/factorio-gridlines/compare/v1.0.3...v1.0.4)
 <sup>Released on **2024-11-05**</sup>
 
