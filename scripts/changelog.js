@@ -6,11 +6,7 @@ const { markdownToTxt } = require('markdown-to-txt');
 
 const input = fs.readFileSync(path.resolve(rootDir, 'CHANGELOG.md'), 'utf8');
 function formatChangelog(input) {
-  let versions = input.split(/Version&nbsp;/).slice(1);
-
-  if (versions.length === 0) {
-    versions = input.split(/Version /).slice(1);
-  }
+  let versions = input.split(/Version&nbsp;|Version /).slice(1);
 
   let output = '';
 
@@ -32,7 +28,14 @@ function formatChangelog(input) {
       const line = lines[i].trim();
       if (line === '') continue;
 
-      if (line.startsWith("What's") || line.startsWith('Styles')) {
+      if (
+        line.startsWith("What's") ||
+        line.startsWith('Styles') ||
+        line.startsWith('Refactor') ||
+        line.startsWith('Tests') ||
+        line.startsWith('Docs') ||
+        line.startsWith('Perf')
+      ) {
         skipSection = true;
         continue;
       }
