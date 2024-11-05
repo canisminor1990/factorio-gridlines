@@ -42,11 +42,10 @@ function formatChangelog(input) {
 
       if (/^\p{Emoji}/u.test(line)) {
         if (currentCategory && changes.length > 0) {
-          output += `  ${currentCategory}:\n`;
+          output += `  ${currentCategory.replace(/^\p{Emoji} /u, '')}:\n`;
           for (const change of changes) {
             output += `    - ${change}\n`;
           }
-          output += '\n';
         }
         currentCategory = line;
         changes = [];
@@ -57,11 +56,10 @@ function formatChangelog(input) {
     }
 
     if (currentCategory && changes.length > 0) {
-      output += `  ${currentCategory}:\n`;
+      output += `  ${currentCategory.replace(/^\p{Emoji} /u, '')}:\n`;
       for (const change of changes) {
         output += `    - ${change}\n`;
       }
-      output += '\n';
     }
   }
 
