@@ -2,6 +2,9 @@
   "controls": {
     "guidelines-toggle": "顯示/隱藏網格"
   },
+  "mod-description": {
+    "gridlines": "使用強大且靈活的網格系統增強您的建築佈局！輔助網格模組為您的世界添加了可自訂的網格，允許在多個層面上進行精確和高效的設計。"
+  },
   "mod-name": {
     "gridlines": "輔助網格"
   },

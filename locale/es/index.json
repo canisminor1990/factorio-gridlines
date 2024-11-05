@@ -2,6 +2,9 @@
   "controls": {
     "guidelines-toggle": "Mostrar/Ocultar cuadrícula"
   },
+  "mod-description": {
+    "gridlines": "¡Mejore el diseño de su construcción con un potente y flexible sistema de cuadrícula! El módulo de cuadrícula auxiliar añade una cuadrícula personalizable a su mundo, permitiendo un diseño preciso y eficiente en múltiples niveles."
+  },
   "mod-name": {
     "gridlines": "Cuadrícula auxiliar"
   },

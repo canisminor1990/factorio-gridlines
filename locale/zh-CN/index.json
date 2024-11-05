@@ -2,6 +2,9 @@
   "controls": {
     "guidelines-toggle": "显示/隐藏网格"
   },
+  "mod-description": {
+    "gridlines": "使用强大且灵活的网格系统增强您的建筑布局！辅助网格模组为您的世界添加了可定制的网格，允许在多个层面上进行精确和高效的设计。"
+  },
   "mod-name": {
     "gridlines": "辅助网格"
   },

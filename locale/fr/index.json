@@ -2,6 +2,9 @@
   "controls": {
     "guidelines-toggle": "Afficher/Cacher la grille"
   },
+  "mod-description": {
+    "gridlines": "Améliorez votre agencement architectural avec un système de grille puissant et flexible ! Le module de grille auxiliaire ajoute une grille personnalisable à votre monde, permettant un design précis et efficace à plusieurs niveaux."
+  },
   "mod-name": {
     "gridlines": "Grille d'assistance"
   },

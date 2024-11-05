@@ -2,6 +2,9 @@
   "controls": {
     "guidelines-toggle": "Hiện/Ẩn lưới"
   },
+  "mod-description": {
+    "gridlines": "Sử dụng hệ thống lưới mạnh mẽ và linh hoạt để nâng cao bố cục kiến trúc của bạn! Mô-đun lưới hỗ trợ thêm lưới tùy chỉnh cho thế giới của bạn, cho phép thiết kế chính xác và hiệu quả trên nhiều cấp độ."
+  },
   "mod-name": {
     "gridlines": "Lưới hỗ trợ"
   },

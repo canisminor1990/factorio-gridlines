@@ -2,6 +2,9 @@
   "controls": {
     "guidelines-toggle": "Raster anzeigen/ausblenden"
   },
+  "mod-description": {
+    "gridlines": "Verbessern Sie Ihr Architektur-Layout mit einem leistungsstarken und flexiblen Rastersystem! Das Hilfsraster-Modul fügt Ihrer Welt anpassbare Gitter hinzu, die präzises und effizientes Design auf mehreren Ebenen ermöglichen."
+  },
   "mod-name": {
     "gridlines": "Hilfsgitter"
   },

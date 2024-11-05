@@ -2,6 +2,9 @@
   "controls": {
     "guidelines-toggle": "Show/Hide Gridlines"
   },
+  "mod-description": {
+    "gridlines": "Enhance your architectural layout with a powerful and flexible grid system! The auxiliary grid module adds customizable grids to your world, allowing for precise and efficient design across multiple levels."
+  },
   "mod-name": {
     "gridlines": "Gridlines"
   },

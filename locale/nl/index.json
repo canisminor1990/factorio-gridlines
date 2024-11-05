@@ -2,6 +2,9 @@
   "controls": {
     "guidelines-toggle": "Toon/Verberg raster"
   },
+  "mod-description": {
+    "gridlines": "Verbeter uw bouwindeling met een krachtig en flexibel raster systeem! De hulprastermodule voegt een aanpasbaar raster toe aan uw wereld, waardoor nauwkeurige en efficiënte ontwerpen op meerdere niveaus mogelijk zijn."
+  },
   "mod-name": {
     "gridlines": "Hulpraster"
   },

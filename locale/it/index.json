@@ -2,6 +2,9 @@
   "controls": {
     "guidelines-toggle": "Mostra/Nascondi la griglia"
   },
+  "mod-description": {
+    "gridlines": "Potenzia il tuo layout architettonico con un potente e flessibile sistema a griglia! Il modulo griglia ausiliario aggiunge una griglia personalizzabile al tuo mondo, consentendo un design preciso ed efficiente su più livelli."
+  },
   "mod-name": {
     "gridlines": "Griglia di supporto"
   },

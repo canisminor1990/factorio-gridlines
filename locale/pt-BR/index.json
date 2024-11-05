@@ -2,6 +2,9 @@
   "controls": {
     "guidelines-toggle": "Mostrar/Ocultar grade"
   },
+  "mod-description": {
+    "gridlines": "Aprimore seu layout arquitetônico com um poderoso e flexível sistema de grades! O módulo de grade auxiliar adiciona grades personalizáveis ao seu mundo, permitindo um design preciso e eficiente em múltiplos níveis."
+  },
   "mod-name": {
     "gridlines": "Grade auxiliar"
   },
