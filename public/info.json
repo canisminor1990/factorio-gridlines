@@ -2,7 +2,7 @@
   "author": "canisminor",
   "contact": "https://github.com/canisminor1990/factorio-gridlines/issues",
   "dependencies": ["base >= 2.0.0", "flib >= 0.15.0"],
-  "description": "Enhance your building layouts with a powerful and flexible grid system! Grid Planner Deluxe adds customizable grids to your world, allowing for precise and efficient designs across multiple layers.",
+  "description": "Enhance your building layouts with a powerful and flexible grid system! Gridlines adds customizable grids to your world, allowing for precise and efficient designs across multiple layers.",
   "factorio_version": "2.0",
   "homepage": "https://github.com/canisminor1990/factorio-gridlines",
   "name": "gridlines",
