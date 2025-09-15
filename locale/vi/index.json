@@ -79,5 +79,12 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "Hiện/Ẩn lưới"
+  },
+  "ui": {
+    "enabled": "Kích hoạt",
+    "layer-1": "[entity=parameter-1] Lớp một",
+    "layer-2": "[entity=parameter-2] Lớp hai",
+    "layer-3": "[entity=parameter-3] Lớp ba",
+    "reset-tooltip": "Đặt lại cài đặt trong bảng điều khiển này về giá trị mặc định"
   }
 }

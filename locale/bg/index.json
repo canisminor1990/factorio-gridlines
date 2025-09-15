@@ -79,5 +79,12 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "Покажи/Скрий решетката"
+  },
+  "ui": {
+    "enabled": "Активиране",
+    "layer-1": "[entity=parameter-1] Първи слой",
+    "layer-2": "[entity=parameter-2] Втори слой",
+    "layer-3": "[entity=parameter-3] Трети слой",
+    "reset-tooltip": "Нулирайте настройките в тази панел до стойностите по подразбиране"
   }
 }

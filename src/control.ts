@@ -1,8 +1,25 @@
+import * as mod_gui from 'mod-gui';
+
 import { blockify } from './app/blockify';
 import { clean } from './app/clean';
 import { blockify_square_around } from './app/iterate';
 import { toggled } from './app/toggled';
-import { HOTKEY_EVENT_NAME, MODE_NAME, SHORTCUT_NAME } from './const';
+import {
+  ensureGui,
+  handleCheckboxToggle,
+  handleFieldChange,
+  onButtonClick,
+  recreateGui,
+} from './app/ui';
+import {
+  GUI_BUTTON_NAME,
+  GUI_FLOW_NAME,
+  GUI_FRAME_NAME,
+  GUI_RESET_NAME,
+  HOTKEY_EVENT_NAME,
+  MODE_NAME,
+  SHORTCUT_NAME,
+} from './const';
 import { Gridlines } from './lib/gridlines';
 import { Player } from './lib/player';
 import { storage } from './lib/storage';
@@ -63,16 +80,30 @@ script.on_event(defines.events.on_surface_created, (event) => {
   storage.surfaces[event.surface_index] = {};
 });
 
+script.on_event(defines.events.on_player_created, (event) => {
+  const player = new Player(event.player_index);
+  ensureGui(player);
+});
+
+script.on_event(defines.events.on_player_joined_game, (event) => {
+  const player = new Player(event.player_index);
+  ensureGui(player);
+});
+
 script.on_event(defines.events.on_lua_shortcut, (event) => {
   if (event.prototype_name !== SHORTCUT_NAME) return;
   const player = new Player(event.player_index);
   player.raw.set_shortcut_toggled(SHORTCUT_NAME, toggled(player));
+  const gridlines = new Gridlines(player);
+  gridlines.refreshVisibility();
 });
 
 script.on_event(HOTKEY_EVENT_NAME, (event) => {
   if (event.input_name !== HOTKEY_EVENT_NAME) return;
   const player = new Player(event.player_index);
   player.raw.set_shortcut_toggled(SHORTCUT_NAME, toggled(player));
+  const gridlines = new Gridlines(player);
+  gridlines.refreshVisibility();
 });
 
 script.on_event(defines.events.on_runtime_mod_setting_changed, (event) => {
@@ -85,7 +116,50 @@ script.on_event(defines.events.on_runtime_mod_setting_changed, (event) => {
   const gridlines = new Gridlines(player);
 
   gridlines.clean();
+  // Recreate GUI captions to reflect locale/setting changes
+  recreateGui(player);
 });
+
+// GUI events
+script.on_event(defines.events.on_gui_click, (event) => {
+  if (!event.element || !event.element.valid) return;
+  const player = new Player(event.player_index);
+  if (event.element.name === GUI_BUTTON_NAME) {
+    onButtonClick(player);
+  } else if (event.element.name === GUI_RESET_NAME) {
+    // Clear UI overrides and refresh both GUI and drawings
+    player.data.ui_overrides = {};
+    const gridlines = new Gridlines(player);
+    gridlines.clean();
+    recreateGui(player);
+    const flow = mod_gui.get_frame_flow(player.raw) as any;
+    const newFrame = flow?.[GUI_FLOW_NAME]?.[GUI_FRAME_NAME] as any;
+    if (newFrame) newFrame.visible = true;
+  }
+});
+
+script.on_event(defines.events.on_gui_checked_state_changed, (event) => {
+  if (!event.element || !event.element.valid) return;
+  const player = new Player(event.player_index);
+  handleCheckboxToggle(player, event.element);
+  const gridlines = new Gridlines(player);
+  gridlines.refreshVisibility();
+  if (string.match(event.element.name, 'enabled') !== undefined) {
+    // Also draw a batch immediately so the effect is visible without toggling global rendering
+    gridlines.draw();
+  }
+});
+
+script.on_event(defines.events.on_gui_text_changed, (event) => {
+  if (!event.element || !event.element.valid) return;
+  const player = new Player(event.player_index);
+  handleFieldChange(player, event.element);
+  const gridlines = new Gridlines(player);
+  // Redraw from scratch to reflect geometry/thickness/color changes
+  gridlines.clean();
+});
+
+// No elem change events
 
 script.on_init(() => {
   clean();
@@ -94,4 +168,9 @@ script.on_init(() => {
 script.on_configuration_changed((event) => {
   const cmc = event.mod_changes[MODE_NAME];
   if (cmc && cmc.old_version !== cmc.new_version) clean();
+  // Refresh GUI for all connected players to avoid stale captions
+  for (const p of game.connected_players) {
+    const player = new Player(p.index);
+    recreateGui(player);
+  }
 });

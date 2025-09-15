@@ -79,5 +79,12 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "Mostrar/Ocultar cuadrícula"
+  },
+  "ui": {
+    "enabled": "Habilitar",
+    "layer-1": "[entity=parameter-1] Primera capa",
+    "layer-2": "[entity=parameter-2] Segunda capa",
+    "layer-3": "[entity=parameter-3] Tercera capa",
+    "reset-tooltip": "Restablecer la configuración de este panel a los valores predeterminados"
   }
 }

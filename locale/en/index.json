@@ -79,5 +79,12 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "Show/Hide Gridlines"
+  },
+  "ui": {
+    "enabled": "Enable",
+    "layer-1": "[entity=parameter-1] First Layer",
+    "layer-2": "[entity=parameter-2] Second Layer",
+    "layer-3": "[entity=parameter-3] Third Layer",
+    "reset-tooltip": "Reset these UI overrides to defaults"
   }
 }

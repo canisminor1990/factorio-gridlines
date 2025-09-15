@@ -1,11 +1,15 @@
 import type { PrototypeData } from 'factorio:common';
-import { type CustomInputPrototype, type ShortcutPrototype } from 'factorio:prototype';
+import {
+  type CustomInputPrototype,
+  type ShortcutPrototype,
+  type SpritePrototype,
+} from 'factorio:prototype';
 
-import { HOTKEY_EVENT_NAME, MODE_DIR, SHORTCUT_NAME } from './const';
+import { HOTKEY_EVENT_NAME, MODE_DIR, MODE_NAME, SHORTCUT_NAME } from './const';
 
 declare const data: PrototypeData;
 
-data.extend<CustomInputPrototype | ShortcutPrototype>([
+data.extend<CustomInputPrototype | ShortcutPrototype | SpritePrototype>([
   {
     consuming: 'none',
     key_sequence: 'F6',
@@ -23,4 +27,11 @@ data.extend<CustomInputPrototype | ShortcutPrototype>([
     toggleable: true,
     type: 'shortcut',
   } satisfies ShortcutPrototype,
+  {
+    filename: `${MODE_DIR}/graphics/icon/gui-button.png`,
+    height: 64,
+    name: `${MODE_NAME}-gui-button`,
+    type: 'sprite',
+    width: 64,
+  } satisfies SpritePrototype,
 ]);

@@ -79,5 +79,12 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "Mostra/Nascondi la griglia"
+  },
+  "ui": {
+    "enabled": "Abilitato",
+    "layer-1": "[entity=parameter-1] Primo livello",
+    "layer-2": "[entity=parameter-2] Secondo livello",
+    "layer-3": "[entity=parameter-3] Terzo livello",
+    "reset-tooltip": "Ripristina le impostazioni di questo pannello ai valori predefiniti"
   }
 }

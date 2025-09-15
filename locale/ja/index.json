@@ -79,5 +79,12 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "グリッドを表示/非表示"
+  },
+  "ui": {
+    "enabled": "有効",
+    "layer-1": "[entity=parameter-1] 第一層",
+    "layer-2": "[entity=parameter-2] 第二層",
+    "layer-3": "[entity=parameter-3] 第三層",
+    "reset-tooltip": "このパネルの設定をデフォルト値にリセット"
   }
 }

@@ -79,5 +79,12 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "Показать/Скрыть сетку"
+  },
+  "ui": {
+    "enabled": "Включить",
+    "layer-1": "[entity=parameter-1] Первый уровень",
+    "layer-2": "[entity=parameter-2] Второй уровень",
+    "layer-3": "[entity=parameter-3] Третий уровень",
+    "reset-tooltip": "Сбросить настройки этой панели к значениям по умолчанию"
   }
 }

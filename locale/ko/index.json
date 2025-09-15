@@ -79,5 +79,12 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "그리드 표시/숨기기"
+  },
+  "ui": {
+    "enabled": "활성화",
+    "layer-1": "[entity=parameter-1] 첫 번째 레이어",
+    "layer-2": "[entity=parameter-2] 두 번째 레이어",
+    "layer-3": "[entity=parameter-3] 세 번째 레이어",
+    "reset-tooltip": "이 패널의 설정을 기본값으로 재설정"
   }
 }

@@ -79,5 +79,12 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "Pokaż/ukryj siatkę"
+  },
+  "ui": {
+    "enabled": "Włączone",
+    "layer-1": "[entity=parameter-1] Pierwsza warstwa",
+    "layer-2": "[entity=parameter-2] Druga warstwa",
+    "layer-3": "[entity=parameter-3] Trzecia warstwa",
+    "reset-tooltip": "Zresetuj ustawienia tego panelu do wartości domyślnych"
   }
 }
