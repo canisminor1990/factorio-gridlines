@@ -1,6 +1,6 @@
 import { blockify } from './app/blockify';
 import { clean } from './app/clean';
-import { iterate_surface_chunks } from './app/iterate';
+import { blockify_square_around } from './app/iterate';
 import { toggled } from './app/toggled';
 import { HOTKEY_EVENT_NAME, MODE_NAME, SHORTCUT_NAME } from './const';
 import { Gridlines } from './lib/gridlines';
@@ -12,18 +12,23 @@ script.on_event(defines.events.on_tick, () => {
   // Skip all work when globally disabled
   if (!storage.enabled) return;
 
-  // Process surfaces only when enabled
-  for (const [index, surface] of Object.entries(storage.surfaces)) {
-    if (Object.keys(surface).length === 0) {
-      iterate_surface_chunks(game.surfaces[Number.parseInt(index)]);
-    }
-  }
+  // Per-tick discovery budget across all players
+  let remainingDiscovery = 128;
 
   // Process players
   for (const p of game.connected_players) {
     const player = new Player(p.index);
 
     player.init();
+
+    // Incrementally discover nearby blocks around the player's current chunk
+    if (remainingDiscovery > 0) {
+      const pos = player.raw.position;
+      const centerChunk: [number, number] = [Math.floor(pos.x / 32), Math.floor(pos.y / 32)];
+      // Expand radius moderately; limit work with remainingDiscovery
+      const added = blockify_square_around(player.raw.surface, centerChunk, 12, remainingDiscovery);
+      remainingDiscovery -= added;
+    }
 
     // Skip drawing work if shortcut hidden
     if (!player.raw.is_shortcut_toggled(SHORTCUT_NAME)) continue;
