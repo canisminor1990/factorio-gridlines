@@ -31,6 +31,9 @@ export class Gridlines {
     const drawOnGround = modSettings.get('draw-on-ground') as boolean;
     const visible = player.raw.is_shortcut_toggled(SHORTCUT_NAME);
 
+    // Do not create render objects when hidden or globally disabled
+    if (!storage.enabled || !visible) return;
+
     for (let g = LAYERS_COUNT; g >= 1; g--) {
       const settingEnabled = modSettings.get('enabled', g) as boolean;
       if (!settingEnabled) continue;

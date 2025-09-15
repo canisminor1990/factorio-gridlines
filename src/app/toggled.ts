@@ -18,6 +18,10 @@ export const toggled = (player: Player): boolean => {
     clean();
     player.resetData();
   } else {
+    // When disabling, schedule existing objects for destruction and hide immediately
+    if (!storage.enabled) {
+      player.resetData();
+    }
     if (player.data.grids && player.data.grids?.length > 0)
       for (const item of player.data.grids) {
         const showGrid = modSettings.get('show-grid', item.group_index) as boolean;

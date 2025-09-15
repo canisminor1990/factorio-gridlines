@@ -1,0 +1,216 @@
+---
+alwaysApply: true
+---
+
+## Typed Factorio key guidance (for Cursor)
+
+Source: https://github.com/GlassBricks/typed-factorio
+
+This project already depends on `typed-factorio` and targets the runtime stage. Use the notes below as a quick reference while coding.
+
+### Setup
+
+- Ensure devDependency: `typed-factorio`
+- In `tsconfig.json` set:
+
+```json
+{
+  "compilerOptions": {
+    "types": ["typed-factorio/runtime"]
+  }
+}
+```
+
+- Other available stages: "typed-factorio/settings", "typed-factorio/prototype".
+
+### Using types from other stages
+
+- Regardless of selected stage(s), you can import stage types via modules:
+
+```ts
+import { ItemPrototype } from 'factorio:prototype';
+import { LuaEntity } from 'factorio:runtime';
+import { BoolSettingDefinition } from 'factorio:settings';
+```
+
+- You may include multiple stages in `types`, but only use globals valid for the file’s actual stage.
+
+### `storage` table typing
+
+`storage` is user-defined. Declare it yourself (pick one approach):
+
+- In a `.d.ts`: `declare const storage: YourType`
+- In a `.ts`: `declare global { const storage: YourType }`
+- Per-file minimal: `declare const storage: { ... }`
+
+### Factorio lualib modules
+
+Types are available for `util` and `mod-gui`:
+
+```ts
+import * as util from 'util';
+
+const copy = util.copy(something);
+```
+
+### Strict typing for `data.extend`
+
+Default is loose for performance. To get strict checks:
+
+- Use `satisfies` per entry, e.g. `... satisfies ItemPrototype`
+- Or provide a type arg: `data.extend<AmmoCategory | ItemPrototype>([ ... ])`
+- Or assign typed variables first, then `data.extend([foo, bar])`
+
+### Multiple stages in one project
+
+Options:
+
+1. Add multiple stages to `types`, e.g. `["typed-factorio/prototype", "typed-factorio/runtime"]` and be careful about globals.
+2. Keep only runtime in `types`, then declare other stage globals manually using `factorio:common`:
+
+```ts
+import { ActiveMods, FeatureFlags, PrototypeData } from 'factorio:common';
+
+declare const data: PrototypeData;
+declare const mods: ActiveMods;
+declare const feature_flags: FeatureFlags;
+```
+
+3. Use separate `tsconfig.json` files per stage (compile separately).
+
+### Events and custom inputs
+
+- `defines.events` carry event payload/filter types.
+- `script.generate_event_name<T>()` returns a typed `CustomEventId`.
+- Optional custom input name checking:
+
+```ts
+declare module 'factorio:common' {
+  export interface CustomInputNames {
+    'my-custom-input': any;
+  }
+}
+```
+
+Then `script.on_event("my-custom-input", ...)` is type-checked.
+
+### Type features and conventions
+
+- `nil` corresponds to `undefined`.
+- Some array-like classes (`LuaInventory`, `LuaFluidBox`, `LuaTransportLine`) are typed like TS arrays and are 0-indexed.
+- Read/write variants: write positions may accept table or array forms (e.g. `MapPosition | MapPositionArray`).
+- Classes with subclasses: prefer `Base*` types generally; narrow when needed.
+- `LuaGuiElement` and `GuiSpec` are discriminated unions; individual element types exist, e.g. `ButtonGuiElement`, `ListBoxGuiSpec`.
+
+### Notes for this repo
+
+- Current `tsconfig.json` uses `typed-factorio/runtime`.
+- When adding settings/prototypes, either extend `types` or declare globals via `factorio:common` in those files.
+
+For full details and updates, refer to the README: https://github.com/GlassBricks/typed-factorio
+## Typed Factorio key guidance (for Cursor)
+
+Source: https://github.com/GlassBricks/typed-factorio
+
+This project already depends on `typed-factorio` and targets the runtime stage. Use the notes below as a quick reference while coding.
+
+### Setup
+
+- Ensure devDependency: `typed-factorio`
+- In `tsconfig.json` set:
+
+```json
+{
+  "compilerOptions": {
+    "types": ["typed-factorio/runtime"]
+  }
+}
+```
+
+- Other available stages: "typed-factorio/settings", "typed-factorio/prototype".
+
+### Using types from other stages
+
+- Regardless of selected stage(s), you can import stage types via modules:
+
+```ts
+import { ItemPrototype } from 'factorio:prototype';
+import { LuaEntity } from 'factorio:runtime';
+import { BoolSettingDefinition } from 'factorio:settings';
+```
+
+- You may include multiple stages in `types`, but only use globals valid for the file’s actual stage.
+
+### `storage` table typing
+
+`storage` is user-defined. Declare it yourself (pick one approach):
+
+- In a `.d.ts`: `declare const storage: YourType`
+- In a `.ts`: `declare global { const storage: YourType }`
+- Per-file minimal: `declare const storage: { ... }`
+
+### Factorio lualib modules
+
+Types are available for `util` and `mod-gui`:
+
+```ts
+import * as util from 'util';
+
+const copy = util.copy(something);
+```
+
+### Strict typing for `data.extend`
+
+Default is loose for performance. To get strict checks:
+
+- Use `satisfies` per entry, e.g. `... satisfies ItemPrototype`
+- Or provide a type arg: `data.extend<AmmoCategory | ItemPrototype>([ ... ])`
+- Or assign typed variables first, then `data.extend([foo, bar])`
+
+### Multiple stages in one project
+
+Options:
+
+1. Add multiple stages to `types`, e.g. `["typed-factorio/prototype", "typed-factorio/runtime"]` and be careful about globals.
+2. Keep only runtime in `types`, then declare other stage globals manually using `factorio:common`:
+
+```ts
+import { ActiveMods, FeatureFlags, PrototypeData } from 'factorio:common';
+
+declare const data: PrototypeData;
+declare const mods: ActiveMods;
+declare const feature_flags: FeatureFlags;
+```
+
+3. Use separate `tsconfig.json` files per stage (compile separately).
+
+### Events and custom inputs
+
+- `defines.events` carry event payload/filter types.
+- `script.generate_event_name<T>()` returns a typed `CustomEventId`.
+- Optional custom input name checking:
+
+```ts
+declare module 'factorio:common' {
+  export interface CustomInputNames {
+    'my-custom-input': any;
+  }
+}
+```
+
+Then `script.on_event("my-custom-input", ...)` is type-checked.
+
+### Type features and conventions
+
+- `nil` corresponds to `undefined`.
+- Some array-like classes (`LuaInventory`, `LuaFluidBox`, `LuaTransportLine`) are typed like TS arrays and are 0-indexed.
+- Read/write variants: write positions may accept table or array forms (e.g. `MapPosition | MapPositionArray`).
+- Classes with subclasses: prefer `Base*` types generally; narrow when needed.
+- `LuaGuiElement` and `GuiSpec` are discriminated unions; individual element types exist, e.g. `ButtonGuiElement`, `ListBoxGuiSpec`.
+
+### Notes for this repo
+
+- Current `tsconfig.json` uses `typed-factorio/runtime`.
+- When adding settings/prototypes, either extend `types` or declare globals via `factorio:common` in those files.
+
+For full details and updates, refer to the README: https://github.com/GlassBricks/typed-factorio

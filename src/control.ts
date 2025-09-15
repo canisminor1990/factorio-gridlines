@@ -22,6 +22,9 @@ script.on_event(defines.events.on_tick, () => {
 
     player.init();
 
+    // Skip drawing work if globally disabled or shortcut hidden
+    if (!storage.enabled || !player.raw.is_shortcut_toggled(SHORTCUT_NAME)) continue;
+
     if (player.data.covered_block_count < storage.mixed_surface_blocks.length) {
       player.data.covered_block_count++;
       const block_data = storage.mixed_surface_blocks[player.data.covered_block_count - 1];
