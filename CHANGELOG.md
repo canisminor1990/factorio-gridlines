@@ -1,5 +1,38 @@
 # Changelog
 
+## [Version&nbsp;1.1.0](https://github.com/canisminor1990/factorio-gridlines/compare/v1.0.5...v1.1.0)
+<sup>Released on **2025-09-15**</sup>
+
+
+#### ✨ Features
+
+- **misc**: Update first render performance, Update performance, Update render performance.
+
+
+<br/>
+
+
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+
+
+#### What's improved
+
+* **misc**: Update first render performance ([6544245](https://github.com/canisminor1990/factorio-gridlines/commit/6544245))
+* **misc**: Update performance ([f4447d8](https://github.com/canisminor1990/factorio-gridlines/commit/f4447d8))
+* **misc**: Update render performance ([2939dcf](https://github.com/canisminor1990/factorio-gridlines/commit/2939dcf))
+
+</details>
+
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;1.0.5](https://github.com/canisminor1990/factorio-gridlines/compare/v1.0.4...v1.0.5)
 <sup>Released on **2024-11-05**</sup>
 
