@@ -59,11 +59,13 @@ export class Gridlines {
       ]);
 
       const showGrid = modSettings.get('show-grid', g) as boolean;
-      if (settingSize > 0) {
-        const block = {
-          bottomRight: mult(add(player.blockData.block_pos, [1, 1]), BLOCK_SIZE),
-          topLeft: mult(player.blockData.block_pos, BLOCK_SIZE),
-        };
+      const block = {
+        bottomRight: mult(add(player.blockData.block_pos, [1, 1]), BLOCK_SIZE),
+        topLeft: mult(player.blockData.block_pos, BLOCK_SIZE),
+      };
+
+      // Skip creating any grid lines when grid is disabled in settings
+      if (settingSize > 0 && showGrid) {
         const lines = chunky({
           bottomRight: block.bottomRight,
           color,
@@ -83,38 +85,39 @@ export class Gridlines {
           lines: lines,
           surface_index: player.blockData.surface_index,
         });
+      }
 
-        // Draw centre mark
-        const showCentre = modSettings.get('show-centre', g) as boolean;
-        const centreMarkSizeSetting = modSettings.get('centre-size', g) as number;
+      // Draw centre mark independently of showGrid
+      const showCentre = modSettings.get('show-centre', g) as boolean;
+      const centreMarkSizeSetting = modSettings.get('centre-size', g) as number;
 
-        if (
-          centreMarkSizeSetting > 0 &&
-          centreMarkSizeSetting < Math.min(Math.min(...size) - Math.min(...spacing) * 2)
-        ) {
-          const centreMarkSpacing: [number, number] = [
-            Math.floor((size[0] - centreMarkSizeSetting) / 2),
-            Math.floor((size[1] - centreMarkSizeSetting) / 2),
-          ];
-          const lines = chunky({
-            bottomRight: block.bottomRight,
-            color,
-            drawOnGround,
-            offset,
-            player: player.raw,
-            size,
-            spacing: centreMarkSpacing,
-            surface: player.raw.surface_index,
-            thickness,
-            topLeft: block.topLeft,
-            visible: visible ? showCentre : false,
-          });
-          player.data.centres.push({
-            group_index: g,
-            lines: lines,
-            surface_index: player.blockData.surface_index,
-          });
-        }
+      if (
+        centreMarkSizeSetting > 0 &&
+        showCentre &&
+        centreMarkSizeSetting < Math.min(Math.min(...size) - Math.min(...spacing) * 2)
+      ) {
+        const centreMarkSpacing: [number, number] = [
+          Math.floor((size[0] - centreMarkSizeSetting) / 2),
+          Math.floor((size[1] - centreMarkSizeSetting) / 2),
+        ];
+        const lines = chunky({
+          bottomRight: block.bottomRight,
+          color,
+          drawOnGround,
+          offset,
+          player: player.raw,
+          size,
+          spacing: centreMarkSpacing,
+          surface: player.raw.surface_index,
+          thickness,
+          topLeft: block.topLeft,
+          visible: visible ? showCentre : false,
+        });
+        player.data.centres.push({
+          group_index: g,
+          lines: lines,
+          surface_index: player.blockData.surface_index,
+        });
       }
     }
   };

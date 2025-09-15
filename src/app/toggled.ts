@@ -1,3 +1,4 @@
+import { MODE_NAME } from '../const';
 import { Player } from '../lib/player';
 import { ModSettings } from '../lib/settings';
 import { storage } from '../lib/storage';
@@ -18,9 +19,16 @@ export const toggled = (player: Player): boolean => {
     clean();
     player.resetData();
   } else {
-    // When disabling, schedule existing objects for destruction and hide immediately
+    // When disabling, immediately clear render objects and wipe player lines without reindexing chunks
     if (!storage.enabled) {
-      player.resetData();
+      rendering.clear(MODE_NAME);
+      for (const pd of Object.values(storage.players)) {
+        if (!pd) continue;
+        pd.delete_lines = [];
+        pd.grids = [];
+        pd.centres = [];
+        pd.covered_block_count = 0;
+      }
     }
     if (player.data.grids && player.data.grids?.length > 0)
       for (const item of player.data.grids) {

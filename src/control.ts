@@ -9,7 +9,10 @@ import { storage } from './lib/storage';
 import { fromXY } from './utils';
 
 script.on_event(defines.events.on_tick, () => {
-  // Process surfaces
+  // Skip all work when globally disabled
+  if (!storage.enabled) return;
+
+  // Process surfaces only when enabled
   for (const [index, surface] of Object.entries(storage.surfaces)) {
     if (Object.keys(surface).length === 0) {
       iterate_surface_chunks(game.surfaces[Number.parseInt(index)]);
@@ -22,8 +25,8 @@ script.on_event(defines.events.on_tick, () => {
 
     player.init();
 
-    // Skip drawing work if globally disabled or shortcut hidden
-    if (!storage.enabled || !player.raw.is_shortcut_toggled(SHORTCUT_NAME)) continue;
+    // Skip drawing work if shortcut hidden
+    if (!player.raw.is_shortcut_toggled(SHORTCUT_NAME)) continue;
 
     if (player.data.covered_block_count < storage.mixed_surface_blocks.length) {
       player.data.covered_block_count++;
