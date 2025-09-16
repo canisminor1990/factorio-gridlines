@@ -1,5 +1,36 @@
 # Changelog
 
+## [Version&nbsp;1.2.0](https://github.com/canisminor1990/factorio-gridlines/compare/v1.1.0...v1.2.0)
+<sup>Released on **2025-09-16**</sup>
+
+
+#### ✨ Features
+
+- **misc**: Add GUI Panel.
+
+
+<br/>
+
+
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+
+
+#### What's improved
+
+* **misc**: Add GUI Panel ([6bff9b4](https://github.com/canisminor1990/factorio-gridlines/commit/6bff9b4))
+
+</details>
+
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;1.1.0](https://github.com/canisminor1990/factorio-gridlines/compare/v1.0.5...v1.1.0)
 <sup>Released on **2025-09-15**</sup>
 
