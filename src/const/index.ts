@@ -5,7 +5,7 @@ export const MODE_DIR = `__${MODE_NAME}__`;
 export const SHORTCUT_NAME = `${MODE_NAME}-toggle`;
 export const HOTKEY_EVENT_NAME = `${MODE_NAME}-toggle`;
 export const LAYERS_COUNT = 3;
-export const BLOCK_SIZE = 1e4;
+export const BLOCK_SIZE = 1024;
 export const PlayerSettings = (...names: (string | number)[]) => [MODE_NAME, ...names].join('-');
 export const GlobalSettings = (...names: (string | number)[]) =>
   [MODE_NAME, 'global', ...names].join('-');

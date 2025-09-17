@@ -26,11 +26,18 @@ import { storage } from './lib/storage';
 import { fromXY } from './utils';
 
 script.on_event(defines.events.on_tick, () => {
-  // Skip all work when globally disabled
-  if (!storage.enabled) return;
+  // Early out if nobody has the shortcut visible
+  let anyVisible = false;
+  for (const p of game.connected_players) {
+    if (p.is_shortcut_toggled(SHORTCUT_NAME)) {
+      anyVisible = true;
+      break;
+    }
+  }
+  if (!anyVisible) return;
 
-  // Per-tick discovery budget across all players
-  let remainingDiscovery = 128;
+  // Per-tick discovery budget across all players (reduced)
+  let remainingDiscovery = 64;
 
   // Process players
   for (const p of game.connected_players) {
@@ -38,17 +45,17 @@ script.on_event(defines.events.on_tick, () => {
 
     player.init();
 
+    const visible = player.raw.is_shortcut_toggled(SHORTCUT_NAME);
+    if (!visible) continue;
+
     // Incrementally discover nearby blocks around the player's current chunk
     if (remainingDiscovery > 0) {
       const pos = player.raw.position;
       const centerChunk: [number, number] = [Math.floor(pos.x / 32), Math.floor(pos.y / 32)];
-      // Expand radius moderately; limit work with remainingDiscovery
-      const added = blockify_square_around(player.raw.surface, centerChunk, 12, remainingDiscovery);
+      // Smaller radius and budget
+      const added = blockify_square_around(player.raw.surface, centerChunk, 8, remainingDiscovery);
       remainingDiscovery -= added;
     }
-
-    // Skip drawing work if shortcut hidden
-    if (!player.raw.is_shortcut_toggled(SHORTCUT_NAME)) continue;
 
     if (player.data.covered_block_count < storage.mixed_surface_blocks.length) {
       player.data.covered_block_count++;

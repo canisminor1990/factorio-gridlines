@@ -11,7 +11,8 @@ export const blockify = (chunk: { position: [number, number]; surface: LuaSurfac
   const surface_index = chunk.surface.index;
 
   const surfaces = storage.surfaces[surface_index];
-  const posKey = helpers.table_to_json(block_pos);
+  // Lightweight key instead of JSON to reduce CPU
+  const posKey = `${block_pos[0]}:${block_pos[1]}`;
   if (surfaces && !surfaces[posKey]) {
     surfaces[posKey] = true;
     storage.mixed_surface_blocks.push({ block_pos: block_pos, surface_index: surface_index });

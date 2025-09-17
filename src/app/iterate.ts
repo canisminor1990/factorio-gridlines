@@ -41,7 +41,7 @@ export const blockify_square_around = (
 
       // Compute block position like in blockify()
       const block_pos = chunkPos.map((q) => Math.floor((q * 32) / BLOCK_SIZE)) as [number, number];
-      const posKey = helpers.table_to_json(block_pos);
+      const posKey = `${block_pos[0]}:${block_pos[1]}`;
       if (!surfaces[posKey]) {
         surfaces[posKey] = true;
         storage.mixed_surface_blocks.push({ block_pos, surface_index: surface.index });
