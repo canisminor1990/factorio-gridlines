@@ -25,6 +25,7 @@ export class Gridlines {
     const player = this.player;
     const modSettings = new ModSettings({
       global: settings.global,
+      overrides: player.data.ui_overrides,
       player: player.settings,
     });
 
@@ -118,6 +119,35 @@ export class Gridlines {
           lines: lines,
           surface_index: player.blockData.surface_index,
         });
+      }
+    }
+  };
+
+  refreshVisibility = () => {
+    const player = this.player;
+    const modSettings = new ModSettings({
+      global: settings.global,
+      overrides: player.data.ui_overrides,
+      player: player.settings,
+    });
+
+    const visible = player.raw.is_shortcut_toggled(SHORTCUT_NAME) && storage.enabled;
+
+    if (player.data.grids && player.data.grids.length > 0) {
+      for (const item of player.data.grids) {
+        const layerEnabled = modSettings.get('enabled', item.group_index) as boolean;
+        const showGrid = modSettings.get('show-grid', item.group_index) as boolean;
+        const shouldShow = visible && layerEnabled && showGrid;
+        for (const line of item.lines) line.visible = shouldShow;
+      }
+    }
+
+    if (player.data.centres && player.data.centres.length > 0) {
+      for (const item of player.data.centres) {
+        const layerEnabled = modSettings.get('enabled', item.group_index) as boolean;
+        const showCentre = modSettings.get('show-centre', item.group_index) as boolean;
+        const shouldShow = visible && layerEnabled && showCentre;
+        for (const line of item.lines) line.visible = shouldShow;
       }
     }
   };

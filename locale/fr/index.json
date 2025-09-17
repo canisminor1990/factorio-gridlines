@@ -79,5 +79,11 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "Afficher/Cacher la grille"
+  },
+  "ui": {
+    "enabled": "Activer",
+    "layer-1": "[entity=parameter-1] Première couche",
+    "layer-2": "[entity=parameter-2] Deuxième couche",
+    "layer-3": "[entity=parameter-3] Troisième couche"
   }
 }

@@ -79,5 +79,12 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "显示/隐藏网格"
+  },
+  "ui": {
+    "layer-1": "[entity=parameter-1] 第一层",
+    "layer-2": "[entity=parameter-2] 第二层",
+    "layer-3": "[entity=parameter-3] 第三层",
+    "enabled": "启用",
+    "reset-tooltip": "重置此面板中的设置为默认值"
   }
 }

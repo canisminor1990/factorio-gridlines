@@ -4,7 +4,12 @@
     "target": "esnext",
     "moduleResolution": "node",
     "module": "commonjs",
-    "types": ["typed-factorio/runtime"],
+    "types": [
+      "lua-types/5.2",
+      "typed-factorio/prototype",
+      "typed-factorio/runtime",
+      "typed-factorio/settings"
+    ],
     "lib": ["esnext"],
     "skipDefaultLibCheck": true,
     "strict": true,

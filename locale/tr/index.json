@@ -79,5 +79,11 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "Ağları Göster/Gizle"
+  },
+  "ui": {
+    "enabled": "Etkin",
+    "layer-1": "[entity=parameter-1] Birinci Kat",
+    "layer-2": "[entity=parameter-2] İkinci Kat",
+    "layer-3": "[entity=parameter-3] Üçüncü Kat"
   }
 }

@@ -79,5 +79,11 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "عرض/إخفاء الشبكة"
+  },
+  "ui": {
+    "enabled": "مفعل",
+    "layer-1": "[entity=parameter-1] الطبقة الأولى",
+    "layer-2": "[entity=parameter-2] الطبقة الثانية",
+    "layer-3": "[entity=parameter-3] الطبقة الثالثة"
   }
 }

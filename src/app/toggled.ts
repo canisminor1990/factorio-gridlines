@@ -12,6 +12,7 @@ export const toggled = (player: Player): boolean => {
 
   const modSettings = new ModSettings({
     global: settings.global,
+    overrides: player.data.ui_overrides,
     player: player.settings,
   });
 

@@ -23,6 +23,7 @@ module.exports = defineConfig({
     'bg',
   ],
   temperature: 0,
+  saveImmediately: true,
   modelName: 'gpt-4o-mini',
   experimental: {
     jsonMode: true,

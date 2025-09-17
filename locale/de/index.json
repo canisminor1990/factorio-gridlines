@@ -79,5 +79,11 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "Raster anzeigen/ausblenden"
+  },
+  "ui": {
+    "enabled": "Aktivieren",
+    "layer-1": "[entity=parameter-1] Erste Ebene",
+    "layer-2": "[entity=parameter-2] Zweite Ebene",
+    "layer-3": "[entity=parameter-3] Dritte Ebene"
   }
 }

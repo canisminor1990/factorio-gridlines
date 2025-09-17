@@ -79,5 +79,11 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "Mostrar/Ocultar grade"
+  },
+  "ui": {
+    "enabled": "Habilitar",
+    "layer-1": "[entity=parameter-1] Primeira Camada",
+    "layer-2": "[entity=parameter-2] Segunda Camada",
+    "layer-3": "[entity=parameter-3] Terceira Camada"
   }
 }

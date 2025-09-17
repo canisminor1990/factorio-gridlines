@@ -79,5 +79,11 @@
   },
   "shortcut-name": {
     "gridlines-toggle": "Toon/Verberg raster"
+  },
+  "ui": {
+    "enabled": "Inschakelen",
+    "layer-1": "[entity=parameter-1] Eerste laag",
+    "layer-2": "[entity=parameter-2] Tweede laag",
+    "layer-3": "[entity=parameter-3] Derde laag"
   }
 }

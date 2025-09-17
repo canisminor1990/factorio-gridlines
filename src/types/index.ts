@@ -15,6 +15,8 @@ export interface PlayerData {
   covered_block_count: number;
   delete_lines: { lines: LuaRenderObject[]; surface_index: number }[];
   grids: { group_index: number; lines: LuaRenderObject[]; surface_index: number }[];
+  // Per-player quick UI overrides keyed as "<setting>|<index>", e.g. "show-grid|1"
+  ui_overrides?: Record<string, any>;
 }
 
 export interface BlockData {
